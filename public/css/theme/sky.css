@@ -107,7 +107,7 @@ body {
 .reveal tbody th, .reveal tbody td { border-bottom: 0.05em solid silver; }
 
 /*********************************************
- * SPECIAL BLOCKQUOTING
+ * SPECIAL CUSTOMIZATIONS
  *********************************************/
 
 .reveal blockquote {
@@ -129,6 +129,19 @@ body {
 .reveal blockquote b { color: #3278b3; }
 
 .reveal .remark { color: gray; font-size: 0.8em; }
+
+.reveal [lang="en"] { font-style: italic; }
+
+.reveal pre {
+  width: auto;
+}
+.reveval pre, .reveal code {
+  font-family: Monaco, "Bitstream DejaVu Sans Mono", monospace;
+  font-size: 0.9em;
+}
+
+.reveal .link { font-size: 0.8em; }
+.reveal .link a { color: gray; }
 
 /*********************************************
  * NAVIGATION CONTROLS

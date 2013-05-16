@@ -1,287 +1,452 @@
 <!doctype html>
 <html lang="fr">
 
-	<head>
-		<meta charset="utf-8">
-
-		<title>Internationaliser son JS dans la joie • Un élaboratoire de Christophe Porteneuve à Sud Web 2013</title>
-
-		<meta name="description" content="Ne négligez plus l'internationalisation. A travers quelques démos et exemples, Christophe Porteneuve proposera des outils et services, à commencer par les interfaces de traduction.">
-		<meta name="author" content="Christophe Porteneuve">
-		<meta name="copyright" content="© 2013 Christophe Porteneuve.  Disponible sous licence http://creativecommons.org/licenses/by-nc-sa/3.0/fr/">
-
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-		<link rel="stylesheet" href="css/reveal.min.css">
-		<link rel="stylesheet" href="css/theme/sky.css" id="theme">
-
-		<!-- For syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/tomorrow.css">
-
-		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
-		<script>
-			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
-		</script>
-
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
-	</head>
-
-	<body>
-
-		<div class="reveal">
-
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
-
-				<section>
-					<h1>Internationaliser</h1>
-					<h3>son JS dans la joie</h3>
-					<p>
-						<small>
-							Un élaboratoire de
-							<a href="http://tddsworld.com">Christophe Porteneuve</a>
-							à <a href="http://sudweb.fr/2013/">Sud Web 2013</a>
-						</small>
-					</p>
-				</section>
-
-				<section>
-					<h1>Salut</h1>
-					<h2>Moi c’est Christophe</h2>
-
-					<p><a href="http://www.js-attitude.fr/" target="_blank">JS Attitude</a>, <a href="http://www.git-attitude.fr/" target="_blank">Git Attitude</a>…</p>
-					<p>Paris Web, toussa…</p>
-					<p><a href="https://twitter.com/porteneuve" target="_blank">@porteneuve</a></p>
-				</section>
-
-				<section>
-					<h2>Petit glossaire</h2>
-
-					<table>
-						<thead>
-							<tr>
-								<th>Terme</th>
-								<th>Définition</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<th>L10n</th>
-								<td><em lang="en">Localization</em lang="en"> (régionalisation) : traduction et adaptation à la culture pour une certaine région, un certain pays</td>
-							</tr>
-							<tr>
-								<th>i18n</th>
-								<td><em lang="en">Internationalization</em lang="en"> : adaptation technique ouvrant la voie à de multiples régionalisations</td>
-							</tr>
-							<tr>
-								<th>g11n</th>
-								<td><em lang="en">Globalization</em lang="en"> : i18n + L10n</td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
-
-				<section>
-					<section>
-						<h2>Le problème</h2>
-
-						<p class="fragment">Les développeurs s’en foutent…</p>
-						<p class="fragment">…ou alors ils n’y pensent pas…</p>
-						<p class="fragment">…ou alors ils ont la flemme…</p>
-						<p class="fragment">…ou alors leurs outils puent.</p>
-					</section>
-
-					<section>
-						<h2>Niveau &minus;1</h2>
-
-						<blockquote>vos <b>1</b> invité<b>s</b> <b>sont</b> prévenu<b>s</b></blockquote>
-
-						<p class="fragment">Aucune personnalisation (masculin pluriel pour tout)</p>
-					</section>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Internationaliser son JS dans la joie • Un élaboratoire de Christophe Porteneuve à Sud Web 2013</title>
+
+    <meta name="description" content="Ne négligez plus l'internationalisation. A travers quelques démos et exemples, Christophe Porteneuve proposera des outils et services, à commencer par les interfaces de traduction.">
+    <meta name="author" content="Christophe Porteneuve">
+    <meta name="copyright" content="© 2013 Christophe Porteneuve.  Disponible sous licence http://creativecommons.org/licenses/by-nc-sa/3.0/fr/">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/sky.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/tomorrow.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+        <section>
+          <h1>Internationaliser</h1>
+          <h3>son JS dans la joie</h3>
+          <p>
+            <small>
+              Un élaboratoire de
+              <a href="http://tddsworld.com">Christophe Porteneuve</a>
+              à <a href="http://sudweb.fr/2013/">Sud Web 2013</a>
+            </small>
+          </p>
+        </section>
+
+        <section>
+          <h1>Salut</h1>
+          <h2>Moi c’est Christophe</h2>
+
+          <p><a href="http://www.js-attitude.fr/" target="_blank">JS Attitude</a>, <a href="http://www.git-attitude.fr/" target="_blank">Git Attitude</a>…</p>
+          <p>Paris Web, toussa…</p>
+          <p><a href="https://twitter.com/porteneuve" target="_blank">@porteneuve</a></p>
+        </section>
+
+        <section>
+          <h2>Petit glossaire</h2>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Terme</th>
+                <th>Définition</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>L10n</th>
+                <td><em lang="en">Localization</em lang="en"> (régionalisation) : traduction et adaptation à la culture pour une certaine région, un certain pays</td>
+              </tr>
+              <tr>
+                <th>i18n</th>
+                <td><em lang="en">Internationalization</em lang="en"> : adaptation technique ouvrant la voie à de multiples régionalisations</td>
+              </tr>
+              <tr>
+                <th>g11n</th>
+                <td><em lang="en">Globalization</em lang="en"> : i18n + L10n</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <section>
+            <h2>Le problème</h2>
+
+            <p class="fragment">Les développeurs s’en foutent…</p>
+            <p class="fragment">…ou alors ils n’y pensent pas…</p>
+            <p class="fragment">…ou alors ils ont la flemme…</p>
+            <p class="fragment">…ou alors leurs outils puent.</p>
+          </section>
+
+          <section>
+            <h2>Niveau &minus;1</h2>
+
+            <blockquote>vos <b>1</b> invité<b>s</b> <b>sont</b> prévenu<b>s</b></blockquote>
+
+            <p class="fragment">Aucune personnalisation (masculin pluriel pour tout)</p>
+          </section>
 
-					<section>
-						<h2>Niveau 0</h2>
+          <section>
+            <h2>Niveau 0</h2>
 
-						<blockquote>vos <b>1</b> invité<b>(e)(s)</b> <b>est (sont)</b> prévenu<b>(e)(s)</b></blockquote>
+            <blockquote>vos <b>1</b> invité<b>(e)(s)</b> <b>est (sont)</b> prévenu<b>(e)(s)</b></blockquote>
 
-						<p class="fragment">
-							« Je sais que c’est pourri mais ni le temps ni l’envie »<br/>
-							(on se cantonne en général au masculin ou à du partiel)
-						</p>
-					</section>
+            <p class="fragment">
+              « Je sais que c’est pourri mais ni le temps ni l’envie »<br/>
+              (on se cantonne en général au masculin ou à du partiel)
+            </p>
+          </section>
+
+          <section>
+            <h2>Niveau 1</h2>
 
-					<section>
-						<h2>Niveau 1</h2>
+            <blockquote><b>votre</b> invité<b>(e)</b> <b>est</b> prévenu<b>(e)</b></blockquote>
 
-						<blockquote><b>votre</b> invité<b>(e)</b> <b>est</b> prévenu<b>(e)</b></blockquote>
+            <p class="fragment">
+              Effort sur le nombre, mais pas sur le genre<br/>
+              La majorité des efforts s'arrête là :-(
+            </p>
+          </section>
 
-						<p class="fragment">
-							Effort sur le nombre, mais pas sur le genre<br/>
-							La majorité des efforts s'arrête là :-(
-						</p>
-					</section>
+          <section>
+            <h2>Niveau 2</h2>
 
-					<section>
-						<h2>Niveau 2</h2>
+            <blockquote>votre invité<b>e</b> est prévenu<b>e</b></blockquote>
 
-						<blockquote>votre invité<b>e</b> est prévenu<b>e</b></blockquote>
+            <p class="fragment">
+              La classe à Dallas : déclinaison genre + nombre<br/>
+              <span class="remark">(on ne sait toutefois pas à quel degré de pluralisation)</span>
+            </p>
+          </section>
 
-						<p class="fragment">
-							La classe à Dallas : déclinaison genre + nombre<br/>
-							<span class="remark">(on ne sait toutefois pas à quel degré de pluralisation)</span>
-						</p>
-					</section>
+          <section>
+            <h2>Niveau <b>42</b></h2>
 
-					<section>
-						<h2>Niveau <b>42</b></h2>
+            <blockquote><b>votre</b> invité<b>e</b> <b>a</b> bien reçu <b>les</b> <b>1 042</b> message<b>s</b> renvoyé<b>s</b> ce <b>lundi</b></blockquote>
 
-						<blockquote><b>votre</b> invité<b>e</b> <b>a</b> bien reçu <b>les</b> <b>1 042</b> message<b>s</b> renvoyé<b>s</b> ce <b>lundi</b></blockquote>
+            <p class="fragment" lang="en"><strong>Achievement unlocked: g11n Wizard!</strong></p>
+            <p class="fragment">Déclinaison à contextes multiples + formatage</p>
+          </section>
 
-						<p class="fragment" lang="en"><strong>Achievement unlocked: g11n Wizard!</strong></p>
-						<p class="fragment">Déclinaison à contextes multiples + formatage</p>
-					</section>
+          <section>
+            <h2>Le format c’est 2 points</h2>
+            <p class="remark">(spéciale dédicace à @notabene et @ElieSl)</p>
 
-					<section>
-						<h2>Le format c’est 2 points</h2>
-						<p class="remark">(spéciale dédicace à @notabene et @ElieSl)</p>
+            <p>Les <strong>dates</strong> et les <strong>nombres</strong></p>
+            <blockquote class="fragment">samedi, mai 18 2013 à 5:00, le thé…</blockquote>
+            <blockquote class="fragment">Il y a 2,345 propositions à évaluer</blockquote>
+            <blockquote class="fragment">Un T-shirt à seulement €7.95 !</blockquote>
+          </section>
+        </section>
 
-						<p>Les <strong>dates</strong> et les <strong>nombres</strong></p>
-						<blockquote class="fragment">samedi, mai 18 2013 à 5:00, le thé…</blockquote>
-						<blockquote class="fragment">Il y a 2,345 propositions à évaluer</blockquote>
-						<blockquote class="fragment">Un T-shirt à seulement €7.95 !</blockquote>
-					</section>
-				</section>
+        <section>
+          <h2>Côté standards…</h2>
 
-				<section>
-					<h2>Côté standards…</h2>
+          <p>Le TC39 a compris qu’il faut quelque chose…</p>
 
-					[ES i18n API](http://norbertlindenberg.com/2012/12/ecmascript-internationalization-api/index.html)
-					Mais seulement pour formatage et collation (déjà cool !), pas pour les traductions
-				</section>
+          <p>Le standard ECMA-402, à savoir la <a lang="en" href="http://norbertlindenberg.com/2012/12/ecmascript-internationalization-api/index.html">ECMAScript Internationalization API</a>, comble un manque, mais attention !</p>
 
-				<section>
-					<h2>Déterminer la langue</h2>
+          <p>Uniquement pour le <strong>formatage</strong> et la <strong lang="en">collation</strong> (comparaison/tri de textes, etc.)</p>
 
-					1. L'en-tête HTTP Accept-Language
-					2. Le cookie
-					3. Le paramètre (path info ou query string)
-				</section>
+          <p>C’est déjà pas mal !</p>
+        </section>
 
-				<section>
-					<h2>Au niveau du HTML</h2>
+        <section>
+          <h2>Déterminer la langue</h2>
 
-					* lang= [communiqué de l'Elysée](http://www.rtl.fr/emission/c-est-sur-le-net/billet/le-net-se-moque-du-communique-en-anglais-de-l-elysee-7760589086) / [mais c'est corrigé](http://www.elysee.fr/communiques-de-presse/article/death-of-margaret-thatcher/)
-					* dir=
-					* bdo?
-			</section>
+          <p>Adoptez une approche à priorité croissante</p>
 
-				<section>
-					<h2>Avec tes p’tits doigts</h2>
+          <ol>
+            <li>L'<strong>en-tête</strong> HTTP <code>Accept-Language</code> <span class="remark">(pas possible côté client)</span></li>
+            <li>Un <strong>cookie</strong> <span class="remark">(persiste un choix explicite)</span></li>
+            <li>
+              Un <strong>paramètre</strong> dans l’URL :
+              <ul>
+                <li>sous-domaine : <code><b>fr</b>.wikipedia.org</code></li>
+                <li><span lang="en">path info</span> : <code>apple.com/<b>fr</b>/…</code></li>
+                <li><span lang="en">query string</span> : <code>example.com/?<b>locale=fr</b>&amp;…</code></li>
+              </ul>
+            </li>
+            <li>L’attribut <code>lang=</code> de <code>&lt;html&gt;</code> <span class="remark">(que côté client, <i>a posteriori</i>)</span></li>
+          </ol>
+        </section>
 
-					* Exemple ultra-basique de structure JS (utiliser des codes de langue farfelus pour honorer mon tweet)
-					  -> "ça roxxe des poneys !", ça envoie du pâté" et "ça arrache le slip !".
-				</section>
+        <section>
+          <h2>Au niveau du HTML</h2>
 
-				<section>
-					<h2>Un mot sur gettext et les <code>*.po</code></h2>
+          <p>La langue active, ce n’est pas anodin…</p>
 
-					* gettext, [Jed](https://github.com/jedtoolkit/Jed), les fichier .po et leurs limites à la con
-				</section>
+          <p>Quand tu l’oublies, <a href="http://www.rtl.fr/emission/c-est-sur-le-net/billet/le-net-se-moque-du-communique-en-anglais-de-l-elysee-7760589086">ça peut trop foutre la honte</a></p>
 
-				<section>
-					<h2>Flexion… extension…</h2>
+          <ul>
+            <li>L’attribut noyau <code>lang=</code> (codes ISO-3166-2)</li>
+            <li>L’attribut noyau <code>dir=</code> (<code>ltr</code>, <code>rtl</code>)</li>
+            <li>L’élément <code>bdo</code> pour les cas foireux ou pré-orientés</li>
+          </ul>
+      </section>
 
-					* Inflections : on dirait que le principal acteur est [Lingo](https://github.com/visionmedia/lingo), de TJ Holowaychuck
-				</section>
+        <section>
+          <h2>Avec tes p’tits doigts</h2>
 
-				<section>
-					<h2>Formater pour de vrai</h2>
+          <pre><code>var TRANSLATIONS = {
+  fr: {
+    label: 'Changez la langue :',
+    '#great': 'C’est génial !',
+    // …
+  },
+  …
+};
 
-					<section>
-						<h2>numberformat.js</h2>
+function applyLocale(loc) {
+  loc = 'string' == typeof loc ? loc : document.documentElement.getAttribute('lang');
 
-						[numberformat.js](https://github.com/jedtoolkit/numberformat.js)
-					</section>
+  var repo = TRANSLATIONS[loc];
 
-					<section>
-						<h2>numeral.js</h2>
+  for (var sel in repo)
+    document.querySelector(sel).innerText = repo[sel];
+}
+</code></pre>
 
-						[Numeral.js](http://adamwdraper.github.io/Numeral-js/) is also very nice, perhaps more useful than numberformat.js
+          <p class="link"><a href="https://github.com/tdd/sudweb2013-g11n/demos/silex/">https://github.com/tdd/sudweb2013-g11n/demos/silex/</a></p>
+        </section>
 
-					</section>
+        <section>
+          <h2>Un mot sur gettext et les <code>*.po</code></h2>
 
-					<section>
-						<h2>moment.js</h2>
+          <p>Gettext est à peu près partout…</p>
+          <p>…mais il est limité à deux contextes : le nombre et un contexte libre</p>
+          <p class="remark">(en revanche il gère très bien les formes de pluriel)</p>
+          <p>Il est facile de convertir ses fichiers <code>.po</code> (voire <code>.mo</code>) vers d’autres formats, notamment JSON, pour migrer vers d’autres outils</p>
 
-						http://momentjs.com/
-					</section>
-				</section>
+<!--
+          * gettext, [Jed](https://github.com/jedtoolkit/Jed), les fichier .po et leurs limites à la con
+          * Voir la doc de messageformat.js pour illustrer les limitations
+-->
+        </section>
 
-				<section>
-					<h2>Traduire</h2>
+        <section>
+          <h2>Flexion… extension…</h2>
 
-					* Polyglot.js
-					* [i18next](http://i18next.com/)
+          <p>Le principal problème vient des pluriels irréguliers et des invariables, particulièrement fréquents en anglais</p>
 
-					<section>
-						<h2>messageformat.js</h2>
+          <p>Principale solution JS : <a href="https://github.com/visionmedia/lingo">Lingo</a><br/>
+            Module Node, enrobable côté client (ex. avec browserify)</p>
 
-						[messageformat.js](https://github.com/jedtoolkit/messageformat.js)
+          <pre><code>var lang = new Language('en', 'English');
 
-					</section>
-				</section>
+lang.pluralize('data')      // => 'data'
+lang.pluralize('sheep')     // => 'sheep'
+lang.singularize('octopi')  // => 'octopus'
+lang.singularize('axes')    // => 'axis'</code></pre>
+        </section>
 
-				<section>
-					<h2>Gérer la trad</h2>
+        <section>
+          <section>
+            <h1>Formater</h1>
+            <h2>pour de vrai</h2>
 
-					* Rails ? [Tolk](https://github.com/dhh/tolk) ou [Localeapp](http://www.localeapp.com/)
-					* [Webtranslateit](https://webtranslateit.com/)
-					* [messageform.at](https://github.com/jedtoolkit/messageform.at)
+            <p>Les nombres (simples, monnaies, pourcentages…) et les dates/heures</p>
+          </section>
 
-				</section>
+          <section>
+            <h2>numberformat.js</h2>
 
-				<section>
-					<h2>Intégration à l’écosystème</h2>
-				</section>
-			</div>
+            <p>Portage JS du module Google Closure<br/>
+              <span class="remark">(lui-même issu du JDK je crois)</span></p>
 
-		</div>
+<pre><code>var parisCash       = new NumberFormat('fr_FR', NumberFormat.Format.CURRENCY);
+var phillyCash      = new NumberFormat('en_US', NumberFormat.Format.CURRENCY);
+var montrealCash    = new NumberFormat('fr_CA', NumberFormat.Format.CURRENCY);
+var unambiguousCash = new NumberFormat('fr_CA', NumberFormat.Format.CURRENCY,
+  null, NumberFormat.CurrencyStyle.GLOBAL);
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.min.js"></script>
+parisCash.format(Math.PI * 1000)       // => '3 141,59 €' — avec les insécables…
+phillyCash.format(Math.PI * 1000)      // => '$3,141.59'
+montrealCash.format(Math.PI * 1000)    // => '3 141,59 $'
+unambiguousCash.format(Math.PI * 1000) // => '3 141,59 CAD $'</code></pre>
 
-		<script>
+            <p>157 <span lang="en">locales</span> pris en charge !</p>
 
-			// Full list of configuration options available here:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
+            <p class="link"><a href="https://github.com/jedtoolkit/numberformat.js">https://github.com/jedtoolkit/numberformat.js</a></p>
+          </section>
 
-				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+          <section>
+            <h2>numeral.js</h2>
 
-				// Optional libraries used to extend on reveal.js
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					// { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					// { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-					// { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-					// { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
-					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
-				]
-			});
+            <p>Toutes sortes de formatages/analyses utiles…</p>
 
-		</script>
+            <pre><code>numeral.language('fr');
+var pim = numeral(Math.PI * 1000 * 1000 * 1000);
+var pik = numeral(Math.PI * 1000);
+var pi  = numeral(Math.PI * 1000);
 
-	</body>
+pi.format('0.000')               // => '3,142'
+pi.format('0.0%')                // => '314,2%'
+pik.format('0,0.00 $')           // => '3141,59 €' -- presque…
+pim.format('0.00b')              // => '2.93GB'
+pik.format('0.00a')              // => '3.14k'
+numeral(1).format('o')           // => '1er'
+numeral(18394).format(':')       // => '5:06:34'
+numeral().unformat('3 142,17 €') // => 3142.17</code></pre>
+
+            <p>Pas parfait, mais ça aide…</p>
+
+            <p class="link"><a href="http://adamwdraper.github.io/Numeral-js/">http://adamwdraper.github.io/Numeral-js/</a></p>
+          </section>
+
+          <section>
+            <h2>moment.js</h2>
+
+            <h3 class="fragment"><strong>Écoute-moi bien</strong></h3>
+
+            <h3 class="fragment">Si ton JS manipule des <strong>dates et heures</strong>…</h3>
+
+            <h3 class="fragment">…tu arrêtes les <strong>conneries</strong>…</h3>
+
+            <h3 class="fragment"><strong>…et tu utilises Moment !</strong></h3>
+        </section>
+
+          <section>
+            <h2>moment.js</h2>
+
+            <p>Calculs + formatage et analyse… en multilingue</p>
+            <p class="remark">Chaînes de format détaillées (JDK, pas <code>strftime</code>)</p>
+
+            <pre><code>moment.lang('fr');
+var today = moment('19/05/2013', 'DD/MM/YYYY');
+
+today.week()                                      // => 20
+today.add(2, 'months').format('dddd D MMMM YYYY') // => 'jeudi 18 juillet 2013'
+today.endOf('month').fromNow()                    // => 'dans 3 mois'
+moment().add(1, 'day').calendar()                 // => 'Demain à 10:40'
+moment().endOf('month').diff(moment(), 'days')    // => 12
+// Et PLEIN d’autres trucs !
+</code></pre>
+
+            <p class="link"><a href="http://momentjs.com/">http://momentjs.com/</a></p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Traduire</h1>
+            <h2>avec du contexte</h2>
+          </section>
+
+          <section>
+            <h2>Polyglot.js</h2>
+
+            <p>FIXME</p>
+
+            <p class="link"><a href="http://airbnb.github.io/polyglot.js/">http://airbnb.github.io/polyglot.js/</a></p>
+          </section>
+
+          <section>
+            <h2>i18next</h2>
+
+            <p>FIXME</p>
+
+            <p class="link"><a href="http://i18next.com/">http://i18next.com/</a></p>
+          </section>
+
+          <section>
+            * jsperanto? -> https://github.com/jpjoyal/jsperanto/
+          </section>
+
+          <section>
+            <h2>messageformat.js</h2>
+
+            <p>FIXME</p>
+
+            <p class="link"><a href="https://github.com/jedtoolkit/messageformat.js">https://github.com/jedtoolkit/messageformat.js</a></p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Gérer la trad</h1>
+          </section>
+
+          <section>
+            <h2>Basé Rails ?</h2>
+
+            <p>FIXME: [Tolk](https://github.com/dhh/tolk) ou [Localeapp](http://www.localeapp.com/) (dont screenshots/démos)</p>
+          </section>
+
+          <section>
+            <h2>Webtranslateit</h2>
+
+            <p>FIXME (dont screenshot/démo)</p>
+
+            <p class="link"><a href="https://webtranslateit.com/">https://webtranslateit.com/</a></p>
+          </section>
+
+          <section>
+            <h2>messageform.at</h2>
+
+            <p>FIXME (dont screenshot/démo)</p>
+
+            <p class="link"><a href="https://github.com/jedtoolkit/messageform.at">https://github.com/jedtoolkit/messageform.at</a></p>
+          </section>
+        </section>
+
+        <section>
+          <h2>Intégration à l’écosystème</h2>
+
+          <p>FIXME</p>
+        </section>
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          // { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          // { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          // { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+          // { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+          // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+
+  </body>
 </html>
