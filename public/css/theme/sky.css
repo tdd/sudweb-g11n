@@ -1,5 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Bitter:400,700);
 @import url(https://fonts.googleapis.com/css?family=Quicksand:400,700,400italic,700italic);
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700);
 /**
  * Sky theme for reveal.js.
  *
@@ -19,7 +19,7 @@ body {
   background-color: #f7fbfc; }
 
 .reveal {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Bitter", sans-serif;
   font-size: 36px;
   font-weight: 200;
   letter-spacing: -0.02em;
@@ -44,11 +44,14 @@ body {
   font-family: "Quicksand", sans-serif;
   line-height: 0.9em;
   letter-spacing: -0.08em;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
   text-shadow: none; }
 
 .reveal h1 {
-  text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2); }
+  text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+  font-size: 2.8em;
+  text-transform: uppercase;
+}
 
 /*********************************************
  * LINKS
@@ -89,6 +92,43 @@ body {
   background: rgba(255, 255, 255, 0.2);
   border-color: #3b759e;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.55); }
+
+/*********************************************
+ * TABLES
+ *********************************************/
+
+.reveal table {
+  margin: 1em auto;
+  border-collapse: collapse;
+}
+.reveal th, .reveal td { padding: 0.3em; }
+.reveal th { font-weight: bold; }
+.reveal thead th { color: #3278b3; border-bottom: 0.1em solid #3278b3; }
+.reveal tbody th, .reveal tbody td { border-bottom: 0.05em solid silver; }
+
+/*********************************************
+ * SPECIAL BLOCKQUOTING
+ *********************************************/
+
+.reveal blockquote {
+  font-family: Bitter, Georgia, serif;
+  font-size: 1.2em;
+  margin: 1.5em auto;
+  box-shadow: none;
+  width: auto;
+}
+.reveal blockquote:before, .reveal blockquote:after {
+  color: rgba(128, 128, 128, 0.2); font-size: 2em;
+}
+.reveal blockquote:before {
+  content: '«';
+}
+.reveal blockquote:after {
+  content: '»'; position: relative; top: 0.3em; left: -0.05em;
+}
+.reveal blockquote b { color: #3278b3; }
+
+.reveal .remark { color: gray; font-size: 0.8em; }
 
 /*********************************************
  * NAVIGATION CONTROLS
