@@ -354,7 +354,17 @@ moment().endOf('month').diff(moment(), 'days')    // => 12
           <section>
             <h2>i18next</h2>
 
-            <p>FIXME</p>
+            <p>Beaucoup de fonctionnalités, dispo client (détection de langue) et Node, réutilisation de clé, pluralisation riche, deux niveaux de contexte, post-processing et notifs serveur traductions manquantes, etc.</p>
+
+            <pre><code class="javascript">// Dans locales/fr/translation.json ou JSON local chargé :
+// { "greeting": "Salut __name__ !",
+//   "greet_friends_male": "Salut copain !",
+//   "greet_friends_male_plural": "Salut les copains !",
+//   "greet_friends_female": "Salut copine !",
+//   "greet_friends_female_plural": "Salut les copines !"}
+i18n.init({ lng: 'fr' });
+i18n.t('greeting', { name: 'John')                      // => 'Salut John !'
+i18n.t('greet_friends', { count: 3, context: 'male' })  // => 'Salut les copains !'</code></pre>
 
             <p class="link"><a href="http://i18next.com/">http://i18next.com/</a></p>
           </section>
@@ -413,13 +423,20 @@ f({ RES: 3, CAT: 2 }) // => 'Il y a 3 produits trouvés dans 2 catégories'
             <p>Approche SaaS : <a href="http://www.localeapp.com/">Locale</a></p>
             <p>Les 2 : YAML + sérialisation JSON dans la vue initiale</p>
 
-            <p>FIXME:SHOTS</p>
+            <ul class="shots">
+              <li><img src="shots/tolk.png" alt="Capture d’écran de Tolk"/></li>
+              <li><img src="shots/localeapp.png" alt="Capture d’écran de Locale"/></li>
+            </ul>
           </section>
 
           <section>
             <h2>Webtranslateit</h2>
 
-            <p>FIXME (dont screenshot/démo)</p>
+            <p>Service en ligne multi-formats, type Locale mais avec une insistance sur les <span lang="en">workflows</span> de relecture/approbation.</p>
+
+            <ul class="shots">
+              <li><img src="shots/webtranslateit.png" alt="Capture d’écran de Webtranslateit"></li>
+            </ul>
 
             <p class="link"><a href="https://webtranslateit.com/">https://webtranslateit.com/</a></p>
           </section>
@@ -427,16 +444,82 @@ f({ RES: 3, CAT: 2 }) // => 'Il y a 3 produits trouvés dans 2 catégories'
           <section>
             <h2>messageform.at</h2>
 
-            <p>Outil open-source pour simplifier les saisies MessageFormat avec des exemples concrets.  Encore balbutiant mais très bonne contextualisation.</p>
+            <p>Outil open-source pour simplifier les saisies MessageFormat avec des exemples concrets.  Encore balbutiant mais très, très bonne contextualisation pour assister la traduction.</p>
+
+            <p>Petit tour de l'interface vite fait…</p>
 
             <p class="link"><a href="https://github.com/jedtoolkit/messageform.at">https://github.com/jedtoolkit/messageform.at</a></p>
           </section>
         </section>
 
         <section>
-          <h2>Intégration à l’écosystème</h2>
+          <section>
+            <h1>Intégration</h1>
+            <h2>avec l’écosystème</h2>
+          </section>
 
-          <p>FIXME</p>
+          <section>
+            <h2>RequireJS</h2>
+
+            <p>FIXME</p>
+
+            <p class="link"><a href="http://requirejs.org/docs/api.html#i18n">http://requirejs.org/docs/api.html#i18n</a></p>
+          </section>
+
+          <section>
+            <h2>Surcouche : Chaplin</h2>
+
+            <p>FIXME ?</p>
+          </section>
+
+          <section>
+            <h2>Surcouche : Marionette</h2>
+
+            <p>FIXME ?</p>
+          </section>
+
+          <section>
+            <h2>Framework : Angular</h2>
+
+            <p>FIXME</p>
+
+            <p class="link"><a href="http://docs.angularjs.org/guide/i18n">http://docs.angularjs.org/guide/i18n</a></p>
+          </section>
+
+          <section>
+            <h2>Framework : Ember</h2>
+
+            <!--
+            -> http://mcdowall.info/posts/getting-started-with-internationalization-i18n-in-ember-js/
+            -> https://github.com/zendesk/ember-i18n‎
+            -> https://github.com/jamesarosen/ember-i18n‎
+            -> https://github.com/andrzejsliwa/ember-i18n‎
+            -->
+          </section>
+
+          <section>
+            <h2>Côté Node : i18n(-2)</h2>
+
+            <p>FIXME</p>
+
+            <p class="link"><a href="https://github.com/jeresig/i18n-node-2">https://github.com/jeresig/i18n-node-2</a></p>
+          </section>
+
+          <section>
+            <h2>Côté Node : i18next (aussi !)</h2>
+
+            <p>FIXME: grosse pelletée de fonctionnalités (interpolation complexe mais 2 éléments de contexte max) + sa propre UI de gestion, tout l'interfaçage Express, etc.</p>
+
+            <p class="link"><a href="http://i18next.com/node/">http://i18next.com/node/</a></p>
+          </section>
+
+          <section>
+            <h2>Côté Node : jus-i18n</h2>
+
+            <p>FIXME: un peu par copinage, déjà pas mal de choses mais pas encore là pour les pluralisations riches, et toujours juste 2 niveaux de contexte.</p>
+
+            <p class="link"><a href="https://github.com/naholyr/node-jus-i18n">https://github.com/naholyr/node-jus-i18n</a></p>
+          </section>
         </section>
       </div>
 
