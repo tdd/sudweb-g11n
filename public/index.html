@@ -175,7 +175,7 @@
           <p>Adoptez une approche à priorité croissante</p>
 
           <ol>
-            <li>L'<strong>en-tête</strong> HTTP <code>Accept-Language</code> <span class="remark">(pas possible côté client)</span></li>
+            <li>L'<strong>en-tête</strong> HTTP <code>Accept-Language</code> <span class="remark">(~ <code>navigator.language</code>)</span></li>
             <li>Un <strong>cookie</strong> <span class="remark">(persiste un choix explicite)</span></li>
             <li>
               Un <strong>paramètre</strong> dans l’URL :
@@ -352,14 +352,6 @@ moment().endOf('month').diff(moment(), 'days')    // => 12
           </section>
 
           <section>
-            <h2>Polyglot.js</h2>
-
-            <p>FIXME</p>
-
-            <p class="link"><a href="http://airbnb.github.io/polyglot.js/">http://airbnb.github.io/polyglot.js/</a></p>
-          </section>
-
-          <section>
             <h2>i18next</h2>
 
             <p>FIXME</p>
@@ -368,13 +360,42 @@ moment().endOf('month').diff(moment(), 'days')    // => 12
           </section>
 
           <section>
-            * jsperanto? -> https://github.com/jpjoyal/jsperanto/
+            <h2>jsperanto</h2>
+
+            <p>Bon équilibre entre simplicité fonctionnelle et API.</p>
+            <p>Pluralisation personnalisable, réutilisation de clé, interpolation, chargement initial ou AJAX, fallback…</p>
+            <p>Dépendance jQuery, en revanche.</p>
+
+            <pre><code>// locales/fr.json (ou datastore intégré au JS) :
+// { "greeting": "Bonjour __name__",
+//   "inbox": "Vous avez un e-mail",
+//   "inbox_plural": "Vous avez __count__ e-mails" }
+
+$.jsperanto.init(applyLocale, { lang: 'fr' });
+$.t('greeting', { name: 'Robert' }) // => 'Bonjour Robert'
+$.t('inbox', { count: 17 }) // => 'Vous avez 17 e-mails'
+</code></pre>
+
+            <p class="link"><a href="https://github.com/jpjoyal/jsperanto/">https://github.com/jpjoyal/jsperanto/</a></p>
           </section>
 
           <section>
             <h2>messageformat.js</h2>
 
-            <p>FIXME</p>
+            <p>Multi-contexte avec imbrication.  Le top, mais syntaxe un peu lourde, forcément…</p>
+
+            <pre><code>var mf = new MessageFormat('fr');
+
+var f = mf.compile('Il \
+  {RES, plural, =0{n’y a aucun} one{y a un} other{y a #}} \
+  {RES, plural, one{produit trouvé} other{produits trouvés}} \
+  dans {CAT, plural, one{une catégorie} other{# catégories}}');
+
+f({ RES: 0, CAT: 0 }) // => 'Il n’y a aucun produit trouvé dans une catégorie'
+f({ RES: 1, CAT: 1 }) // => 'Il y a un produit trouvé dans une catégorie'
+f({ RES: 3, CAT: 1 }) // => 'Il y a 3 produits trouvés dans une catégorie'
+f({ RES: 3, CAT: 2 }) // => 'Il y a 3 produits trouvés dans 2 catégories'
+</code></pre>
 
             <p class="link"><a href="https://github.com/jedtoolkit/messageformat.js">https://github.com/jedtoolkit/messageformat.js</a></p>
           </section>
@@ -388,7 +409,11 @@ moment().endOf('month').diff(moment(), 'days')    // => 12
           <section>
             <h2>Basé Rails ?</h2>
 
-            <p>FIXME: [Tolk](https://github.com/dhh/tolk) ou [Localeapp](http://www.localeapp.com/) (dont screenshots/démos)</p>
+            <p>Approche <span lang="en">engine</span> : <a href="https://github.com/dhh/tolk">Tolk</a></p>
+            <p>Approche SaaS : <a href="http://www.localeapp.com/">Locale</a></p>
+            <p>Les 2 : YAML + sérialisation JSON dans la vue initiale</p>
+
+            <p>FIXME:SHOTS</p>
           </section>
 
           <section>
@@ -402,7 +427,7 @@ moment().endOf('month').diff(moment(), 'days')    // => 12
           <section>
             <h2>messageform.at</h2>
 
-            <p>FIXME (dont screenshot/démo)</p>
+            <p>Outil open-source pour simplifier les saisies MessageFormat avec des exemples concrets.  Encore balbutiant mais très bonne contextualisation.</p>
 
             <p class="link"><a href="https://github.com/jedtoolkit/messageform.at">https://github.com/jedtoolkit/messageform.at</a></p>
           </section>

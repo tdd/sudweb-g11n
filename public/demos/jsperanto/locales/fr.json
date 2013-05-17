@@ -1,0 +1,10 @@
+{
+  "title": "$t(h1) • Élaboratoire Internationalisation JS de Christophe Porteneuve à SudWeb 2013",
+  "h1": "g11n avec jsperanto",
+  "#lblLangs": "Changez la langue :",
+  "#lblCount": "Base de pluralisation :",
+  "#great": "C’est génial !",
+  "#extraordinary": "C’est extraordinaire !",
+  "#extraordinary_plural": "Ces __count__ trucs sont extraordinaires !",
+  "#awesome": "C’est vraiment fabuleux !"
+}

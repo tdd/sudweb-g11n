@@ -1,0 +1,10 @@
+{
+  "title": "$t(h1) • JS g11n workshop by Christophe Porteneuve at SudWeb 2013",
+  "h1": "g11n with jsperanto",
+  "#lblLangs": "Switch language:",
+  "#lblCount": "Pluralization basis:",
+  "#great": "This is great!",
+  "#extraordinary": "This is extraordinary!",
+  "#extraordinary_plural": "These __count__ things are extraordinary!",
+  "#awesome": "This is awesome!"
+}

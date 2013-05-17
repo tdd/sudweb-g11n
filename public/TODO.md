@@ -5,11 +5,9 @@ SLIDES
 * Intégration avec les frameworks et loaders
   * Côté client :
     * [RequireJS](http://requirejs.org/docs/api.html#i18n)
-    * Backbone ? -> rien de base, voir selon techno de vue
     * Chaplin ?
     * Marionnette ?
     * Angular -> http://docs.angularjs.org/guide/i18n
-    * Handlebars -> rien de spécial, on peut coller un helper sur ce qu'on veut…
     * Jade -> https://github.com/thomasklemm/jade-i18n
     * Ember ?
       -> http://mcdowall.info/posts/getting-started-with-internationalization-i18n-in-ember-js/
@@ -26,6 +24,5 @@ SLIDES
 DEMO REPOS
 
 * DONE: Démo "silex"
-* MessageFormat, Numeral, et Moment.js
-* Polyglot.js ou i18next ?
+* MessageFormat, Numeral, Moment.js et Jade ?
 * Conversion des dépôts pour un chargement RequireJS avec gestion i18n
