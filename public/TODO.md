@@ -1,9 +1,5 @@
 To-Do Élaboratoire G11n JS @ Sud Web
 
-SLIDES
-
-Quelques FIXME et exemples de code restants
-
 DEMO REPOS
 
 * DONE: Démo "silex"
